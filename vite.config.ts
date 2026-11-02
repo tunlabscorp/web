@@ -7,6 +7,7 @@ import { defineConfig } from 'vitest/config'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  base: process.env.VITE_BASE ?? '/',
   test: {
     environment: 'jsdom',
     setupFiles: './src/test/setup.ts',

@@ -197,7 +197,7 @@ export function Showcase() {
         }
       >
         <div
-          className="mx-auto flex w-full max-w-5xl flex-col items-center gap-12 will-change-transform lg:flex-row lg:gap-20"
+          className="mx-auto flex w-full max-w-5xl flex-col items-center gap-7 will-change-transform lg:flex-row lg:gap-20"
           style={{ transform: `translateY(${riseVh * 100}vh)` }}
         >
           {/* Phone */}
@@ -208,7 +208,7 @@ export function Showcase() {
               style={{ opacity: phoneEase * 0.85 }}
             />
             <Tilt max={5} className="relative">
-              <div className="w-[min(74vw,280px)] rounded-[2.6rem] border border-slate-300/70 bg-gradient-to-b from-slate-200 to-slate-300 p-2 shadow-2xl shadow-brand-950/30 dark:border-white/10 dark:from-slate-800 dark:to-slate-900 dark:shadow-black/50">
+              <div className="w-[min(56vw,200px)] rounded-[2.6rem] border border-slate-300/70 bg-gradient-to-b from-slate-200 to-slate-300 p-2 shadow-2xl shadow-brand-950/30 lg:w-[min(74vw,280px)] dark:border-white/10 dark:from-slate-800 dark:to-slate-900 dark:shadow-black/50">
                 <div className="relative aspect-[9/19] w-full overflow-hidden rounded-[2.1rem] bg-black">
                   <span
                     aria-hidden="true"
@@ -225,28 +225,28 @@ export function Showcase() {
           </div>
 
           {/* Text */}
-          <div className="max-w-xl text-center lg:text-left" style={reduced ? undefined : textStyle}>
-            <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl dark:text-white">
+          <div className="w-full max-w-xl text-center lg:text-left" style={reduced ? undefined : textStyle}>
+            <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl lg:text-4xl dark:text-white">
               {t('showcase.heading')}
             </h2>
-            <p className="mt-4 text-lg text-slate-500 dark:text-slate-400">
+            <p className="mt-3 text-base text-slate-500 lg:mt-4 lg:text-lg dark:text-slate-400">
               {t('showcase.subheading')}
             </p>
 
-            <div className="mt-8 space-y-5">
+            <div className="mt-6 flex justify-center gap-5 lg:mt-8 lg:block lg:space-y-5">
               {features.map(({ key, icon: Icon }) => (
                 <div
                   key={key}
-                  className="flex items-start gap-4 text-left"
+                  className="flex w-24 flex-col items-center gap-2 text-center lg:w-auto lg:flex-row lg:items-start lg:gap-4 lg:text-left"
                 >
-                  <div className="flex size-10 shrink-0 items-center justify-center rounded-lg bg-brand-500/10 text-brand-600 dark:text-brand-400">
+                  <div className="flex size-9 shrink-0 items-center justify-center rounded-lg bg-brand-500/10 text-brand-600 lg:size-10 dark:text-brand-400">
                     <Icon size={18} />
                   </div>
                   <div>
-                    <h3 className="text-sm font-medium text-slate-900 dark:text-white">
+                    <h3 className="text-[11px] leading-tight font-medium text-slate-900 lg:text-sm dark:text-white">
                       {t(`showcase.features.${key}.title`)}
                     </h3>
-                    <p className="mt-1 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
+                    <p className="mt-1 hidden text-sm leading-relaxed text-slate-500 lg:block dark:text-slate-400">
                       {t(`showcase.features.${key}.description`)}
                     </p>
                   </div>
@@ -254,7 +254,7 @@ export function Showcase() {
               ))}
             </div>
 
-            <p className="mt-8 font-mono text-xs tracking-widest text-slate-400 uppercase dark:text-slate-500">
+            <p className="mt-8 hidden font-mono text-xs tracking-widest text-slate-400 uppercase lg:block dark:text-slate-500">
               {t('showcase.hint')}
             </p>
           </div>
