@@ -46,6 +46,32 @@ html {
   scroll-behavior: smooth;
 }
 
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  filter: blur(8px);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.8s ease;
+  will-change: opacity, transform, filter;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}
+
 body {
   @apply bg-white text-slate-600 antialiased transition-colors dark:bg-slate-950 dark:text-slate-300;
 }
