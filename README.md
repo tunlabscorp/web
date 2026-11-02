@@ -2,6 +2,32 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
+## Prerequisites
+
+- **Node.js** `^20.19.0 || >=22.12.0` (22 LTS recommended)
+- **pnpm** `>= 10` — install via `corepack enable` or https://pnpm.io/installation
+- **Git**
+- **React 19** is already included as a project dependency — no global install needed
+
+## Installation
+
+```bash
+git clone https://github.com/tunlabscorp/web.git
+cd web
+pnpm install
+```
+
+## Running
+
+```bash
+pnpm dev       # dev server with HMR at http://localhost:5173
+pnpm build     # type-check + production build to dist/
+pnpm preview   # serve the production build locally
+pnpm lint      # run oxlint
+```
+
+> Tests are not configured yet — `pnpm test` will be added during project setup.
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
