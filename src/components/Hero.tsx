@@ -2,26 +2,30 @@
 
 import { useTranslation } from 'react-i18next'
 import { ArrowRight } from 'lucide-react'
+import { Particles } from './Particles'
+import { useParallax } from '../hooks/useParallax'
 import bannerClear from '../assets/banner_clear_mode.jpg'
 import bannerDark from '../assets/banner_dark_mode.jpg'
 
 export function Hero() {
   const { t } = useTranslation()
+  const bannerRef = useParallax<HTMLDivElement>(0.25)
 
   return (
     <section id="top" className="relative overflow-hidden pt-16">
-      <img
-        src={bannerClear}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 h-full w-full object-cover object-right dark:hidden"
-      />
-      <img
-        src={bannerDark}
-        alt=""
-        aria-hidden="true"
-        className="absolute inset-0 hidden h-full w-full object-cover object-right dark:block"
-      />
+      <div ref={bannerRef} aria-hidden="true" className="absolute inset-0 scale-[1.15] will-change-transform">
+        <img
+          src={bannerClear}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover object-right dark:hidden"
+        />
+        <img
+          src={bannerDark}
+          alt=""
+          className="absolute inset-0 hidden h-full w-full object-cover object-right dark:block"
+        />
+      </div>
+      <Particles className="opacity-80" />
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent dark:from-slate-950 dark:via-slate-950/60"

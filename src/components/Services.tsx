@@ -10,6 +10,7 @@ import {
   Globe,
 } from 'lucide-react'
 import { Reveal } from './Reveal'
+import { Tilt } from './Tilt'
 
 const items = [
   { key: 'custom', icon: Code2 },
@@ -38,7 +39,8 @@ export function Services() {
         <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {items.map(({ key, icon: Icon }, i) => (
             <Reveal key={key} delay={i * 90} className="h-full">
-              <div className="group h-full rounded-xl border border-slate-200 bg-white p-6 transition-colors hover:border-brand-500/50 hover:bg-brand-50/50 dark:border-white/10 dark:bg-white/[0.02] dark:hover:bg-brand-500/[0.04]">
+              <Tilt>
+                <div className="group h-full rounded-xl border border-slate-200 bg-white p-6 transition-colors hover:border-brand-500/50 hover:bg-brand-50/50 dark:border-white/10 dark:bg-white/[0.02] dark:hover:bg-brand-500/[0.04]">
                 <div className="flex size-10 items-center justify-center rounded-lg bg-brand-500/10 text-brand-600 transition-colors group-hover:bg-brand-500/20 dark:text-brand-400">
                   <Icon size={20} />
                 </div>
@@ -48,7 +50,8 @@ export function Services() {
                 <p className="mt-2 text-sm leading-relaxed text-slate-500 dark:text-slate-400">
                   {t(`services.items.${key}.description`)}
                 </p>
-              </div>
+                </div>
+              </Tilt>
             </Reveal>
           ))}
         </div>

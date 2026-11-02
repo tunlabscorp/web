@@ -3,6 +3,7 @@
 import { useTranslation } from 'react-i18next'
 import { ArrowRight, Mail } from 'lucide-react'
 import { Reveal } from './Reveal'
+import { Particles } from './Particles'
 
 export function Contact() {
   const { t } = useTranslation()
@@ -11,8 +12,9 @@ export function Contact() {
     <section id="contact" className="relative overflow-hidden border-t border-slate-200 py-28 dark:border-white/5">
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -bottom-40 left-1/2 h-[400px] w-[640px] -translate-x-1/2 rounded-full bg-brand-500/10 blur-[120px] dark:bg-brand-600/15"
+        className="pointer-events-none absolute -bottom-40 left-1/2 h-[400px] w-[640px] -translate-x-1/2 animate-float-y rounded-full bg-brand-500/10 blur-[120px] dark:bg-brand-600/15"
       />
+      <Particles className="opacity-60" />
       <div className="relative mx-auto flex max-w-3xl flex-col items-center px-6 text-center">
         <Reveal>
           <h2 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-5xl dark:text-white">
