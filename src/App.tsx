@@ -4,6 +4,7 @@ import { Navbar } from './components/Navbar'
 import { ScrollProgress } from './components/ScrollProgress'
 import { Hero } from './components/Hero'
 import { Services } from './components/Services'
+import { Showcase } from './components/Showcase'
 import { Process } from './components/Process'
 import { About } from './components/About'
 import { Contact } from './components/Contact'
@@ -17,6 +18,7 @@ function App() {
       <main>
         <Hero />
         <Services />
+        <Showcase />
         <Process />
         <About />
         <Contact />

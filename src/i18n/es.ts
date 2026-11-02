@@ -3,6 +3,7 @@
 export const es = {
   nav: {
     services: 'Servicios',
+    demo: 'Demo',
     process: 'Proceso',
     about: 'Nosotros',
     contact: 'Contacto',
@@ -78,6 +79,48 @@ export const es = {
       },
     },
   },
+  showcase: {
+    heading: 'Tu producto, en vivo y en tus manos',
+    subheading: 'Desliza para ver cómo construimos — después prueba el teléfono.',
+    hint: 'Interactúa con el teléfono — es una demo en vivo',
+    features: {
+      fast: {
+        title: 'Entrega rápido, itera más rápido',
+        description: 'Demos semanales y delivery continuo desde el primer sprint.',
+      },
+      quality: {
+        title: 'Calidad de producción por defecto',
+        description: 'Tests, code review y CI/CD en cada entrega.',
+      },
+      impact: {
+        title: 'Diseñado para convertir',
+        description: 'Cada pantalla pensada para tus objetivos de negocio.',
+      },
+    },
+    tabs: {
+      overview: 'Resumen',
+      analytics: 'Métricas',
+      team: 'Equipo',
+    },
+    stats: {
+      revenue: 'Ingresos',
+      users: 'Usuarios activos',
+      uptime: 'Disponibilidad',
+    },
+    projects: {
+      phoenix: 'Proyecto Phoenix',
+      atlas: 'Plataforma Atlas',
+      nova: 'App Nova',
+    },
+    shipped: 'Entregado',
+    weeklyDeploys: 'Deploys semanales',
+    members: [
+      { name: 'Ana Martínez', role: 'Ingeniera Principal' },
+      { name: 'Juan Ríos', role: 'Diseñador de Producto' },
+      { name: 'Sara Kim', role: 'Dev Full-Stack' },
+      { name: 'Luis Pérez', role: 'DevOps' },
+    ],
+  },
   about: {
     heading: 'Por qué Tunlabs',
     subheading:
@@ -103,8 +146,8 @@ export const es = {
   },
   contact: {
     heading: 'Construyamos algo grande juntos',
-    subheading: 'Contanos sobre tu proyecto. Respondemos dentro de un día hábil.',
-    cta: 'Contactanos',
+    subheading: 'Cuéntanos sobre tu proyecto. Respondemos dentro de un día hábil.',
+    cta: 'Contáctanos',
     email: 'hello@tunlabs.com',
   },
   footer: {

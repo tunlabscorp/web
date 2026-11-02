@@ -19,7 +19,9 @@ export function Reveal({ children, delay = 0, className = '' }: RevealProps) {
     if (!el || typeof IntersectionObserver === 'undefined') return
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setVisible(entry.isIntersecting)
+        if (!entry.isIntersecting) return
+        setVisible(true)
+        observer.disconnect()
       },
       { threshold: 0.15, rootMargin: '0px 0px -40px' },
     )

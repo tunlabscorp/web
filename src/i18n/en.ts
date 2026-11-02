@@ -3,6 +3,7 @@
 export const en = {
   nav: {
     services: 'Services',
+    demo: 'Demo',
     process: 'Process',
     about: 'About',
     contact: 'Contact',
@@ -77,6 +78,48 @@ export const en = {
           'Zero-drama deployment, monitoring, and a partner that stays as you grow.',
       },
     },
+  },
+  showcase: {
+    heading: 'Your product, live in your hands',
+    subheading: 'Scroll to see how we build — then try the phone.',
+    hint: 'Interact with the phone — it’s a live demo',
+    features: {
+      fast: {
+        title: 'Ship fast, iterate faster',
+        description: 'Weekly demos and continuous delivery from sprint one.',
+      },
+      quality: {
+        title: 'Production-grade by default',
+        description: 'Testing, code review, and CI/CD baked into every build.',
+      },
+      impact: {
+        title: 'Built to convert',
+        description: 'Every screen designed around your business goals.',
+      },
+    },
+    tabs: {
+      overview: 'Overview',
+      analytics: 'Analytics',
+      team: 'Team',
+    },
+    stats: {
+      revenue: 'Revenue',
+      users: 'Active users',
+      uptime: 'Uptime',
+    },
+    projects: {
+      phoenix: 'Project Phoenix',
+      atlas: 'Atlas Platform',
+      nova: 'Nova App',
+    },
+    shipped: 'Shipped',
+    weeklyDeploys: 'Weekly deploys',
+    members: [
+      { name: 'Ana Martínez', role: 'Lead Engineer' },
+      { name: 'Juan Ríos', role: 'Product Designer' },
+      { name: 'Sara Kim', role: 'Full-Stack Dev' },
+      { name: 'Luis Pérez', role: 'DevOps' },
+    ],
   },
   about: {
     heading: 'Why Tunlabs',

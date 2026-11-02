@@ -9,6 +9,7 @@ import logoDark from '../assets/logo-dark-mode.png'
 
 const links = [
   { key: 'services', href: '#services' },
+  { key: 'demo', href: '#showcase' },
   { key: 'process', href: '#process' },
   { key: 'about', href: '#about' },
   { key: 'contact', href: '#contact' },
