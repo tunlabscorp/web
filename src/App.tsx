@@ -7,7 +7,6 @@ import { Services } from './components/Services'
 import { Showcase } from './components/Showcase'
 import { Process } from './components/Process'
 import { About } from './components/About'
-import { Contact } from './components/Contact'
 import { Footer } from './components/Footer'
 
 function App() {
@@ -18,10 +17,9 @@ function App() {
       <main>
         <Hero />
         <Services />
-        <Showcase />
         <Process />
         <About />
-        <Contact />
+        <Showcase />
       </main>
       <Footer />
     </div>

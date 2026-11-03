@@ -3,7 +3,6 @@
 export const es = {
   nav: {
     services: 'Servicios',
-    demo: 'Demo',
     process: 'Proceso',
     about: 'Nosotros',
     contact: 'Contacto',
@@ -80,9 +79,10 @@ export const es = {
     },
   },
   showcase: {
-    heading: 'Tu producto, en vivo y en tus manos',
-    subheading: 'Desliza para ver cómo construimos — después prueba el teléfono.',
-    hint: 'Interactúa con el teléfono — es una demo en vivo',
+    heading: 'Hablemos de tu proyecto',
+    subheading:
+      'Abre el chat dentro del teléfono y cuéntanos tu idea — te respondemos en un día hábil.',
+    hint: 'Escríbenos desde el teléfono — es un chat real',
     features: {
       fast: {
         title: 'Entrega rápido, itera más rápido',
@@ -101,6 +101,18 @@ export const es = {
       overview: 'Resumen',
       analytics: 'Métricas',
       team: 'Equipo',
+      chat: 'Chat',
+    },
+    chat: {
+      greeting: '¡Hola! Soy el asistente de Tunlabs. ¿Cómo te llamas?',
+      askEmail: 'Mucho gusto, {{name}}. ¿Cuál es tu correo?',
+      invalidEmail: 'Ese correo no parece válido — intenta de nuevo.',
+      askProject: 'Perfecto. Cuéntame sobre tu proyecto o idea.',
+      success: '¡Listo! Tu mensaje ya llegó. Te responderemos dentro de un día hábil.',
+      error: 'Algo falló al enviar. Escríbenos directo a',
+      placeholder: 'Escribe...',
+      send: 'Enviar',
+      again: 'Enviar otro mensaje',
     },
     stats: {
       revenue: 'Ingresos',
@@ -143,12 +155,6 @@ export const es = {
         description: 'Tests automatizados, code review y CI/CD en cada proyecto.',
       },
     },
-  },
-  contact: {
-    heading: 'Construyamos algo grande juntos',
-    subheading: 'Cuéntanos sobre tu proyecto. Respondemos dentro de un día hábil.',
-    cta: 'Contáctanos',
-    email: 'hello@tunlabs.com',
   },
   footer: {
     tagline: 'Estudio de desarrollo de software.',

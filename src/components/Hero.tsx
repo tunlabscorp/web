@@ -60,7 +60,7 @@ export function Hero() {
             style={{ animationDelay: '300ms' }}
           >
             <a
-              href="#contact"
+              href="#showcase"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-500"
             >
               {t('hero.ctaPrimary')}

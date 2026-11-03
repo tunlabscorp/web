@@ -4,9 +4,10 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ShieldCheck, Target, Zap } from 'lucide-react'
 import { Tilt } from './Tilt'
+import { PhoneChat } from './PhoneChat'
 import { useScrollProgress } from '../hooks/useScrollProgress'
 
-const tabs = ['overview', 'analytics', 'team'] as const
+const tabs = ['overview', 'analytics', 'team', 'chat'] as const
 type Tab = (typeof tabs)[number]
 
 const stats = [
@@ -24,7 +25,7 @@ const features = [
 
 function ScreenApp() {
   const { t } = useTranslation()
-  const [tab, setTab] = useState<Tab>('overview')
+  const [tab, setTab] = useState<Tab>('chat')
 
   return (
     <div className="flex h-full flex-col bg-slate-950 text-left">
@@ -64,7 +65,7 @@ function ScreenApp() {
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-hidden p-3">
+      <div className={tab === 'chat' ? 'flex-1 overflow-hidden' : 'flex-1 overflow-hidden p-3'}>
         {tab === 'overview' && (
           <div className="flex h-full flex-col gap-2">
             <div className="grid grid-cols-2 gap-2">
@@ -124,6 +125,8 @@ function ScreenApp() {
             </div>
           </div>
         )}
+
+        {tab === 'chat' && <PhoneChat />}
 
         {tab === 'team' && (
           <div className="flex h-full flex-col gap-1.5">

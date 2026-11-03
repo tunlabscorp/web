@@ -3,7 +3,6 @@
 export const en = {
   nav: {
     services: 'Services',
-    demo: 'Demo',
     process: 'Process',
     about: 'About',
     contact: 'Contact',
@@ -80,9 +79,10 @@ export const en = {
     },
   },
   showcase: {
-    heading: 'Your product, live in your hands',
-    subheading: 'Scroll to see how we build — then try the phone.',
-    hint: 'Interact with the phone — it’s a live demo',
+    heading: 'Let’s talk about your project',
+    subheading:
+      'Open the chat inside the phone and tell us about your idea — we reply within one business day.',
+    hint: 'Message us from the phone — it’s a real chat',
     features: {
       fast: {
         title: 'Ship fast, iterate faster',
@@ -101,6 +101,18 @@ export const en = {
       overview: 'Overview',
       analytics: 'Analytics',
       team: 'Team',
+      chat: 'Chat',
+    },
+    chat: {
+      greeting: "Hi! I'm the Tunlabs assistant. What's your name?",
+      askEmail: 'Nice to meet you, {{name}}. What’s your email?',
+      invalidEmail: 'That email doesn’t look right — try again.',
+      askProject: 'Great. Tell me about your project or idea.',
+      success: 'Done! Your message just landed. We’ll reply within one business day.',
+      error: 'Something went wrong sending it. Write us directly at',
+      placeholder: 'Type...',
+      send: 'Send',
+      again: 'Send another message',
     },
     stats: {
       revenue: 'Revenue',
@@ -143,12 +155,6 @@ export const en = {
         description: 'Automated testing, code review, and CI/CD on every engagement.',
       },
     },
-  },
-  contact: {
-    heading: 'Let’s build something great together',
-    subheading: 'Tell us about your project. We usually reply within one business day.',
-    cta: 'Get in touch',
-    email: 'hello@tunlabs.com',
   },
   footer: {
     tagline: 'Software development studio.',
