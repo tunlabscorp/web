@@ -88,33 +88,56 @@ export function Navbar() {
         </div>
       </nav>
 
-      {open && (
-        <div className="border-t border-slate-200 bg-white px-6 py-4 dark:border-white/5 dark:bg-slate-950 md:hidden">
-          <div className="flex flex-col gap-4">
-            {links.map(({ key, href }) => (
+      <div
+        className={`grid overflow-hidden border-t transition-all duration-300 ease-out md:hidden ${
+          open
+            ? 'grid-rows-[1fr] border-slate-200 opacity-100 dark:border-white/5'
+            : 'grid-rows-[0fr] border-transparent opacity-0'
+        }`}
+      >
+        <div className="min-h-0">
+          <div className="flex flex-col gap-4 bg-white px-6 py-4 dark:bg-slate-950">
+            {links.map(({ key, href }, i) => (
               <a
                 key={key}
                 href={href}
                 onClick={() => setOpen(false)}
-                className="text-sm text-slate-600 dark:text-slate-300"
+                style={{ transitionDelay: open ? `${60 + i * 40}ms` : '0ms' }}
+                className={`text-sm text-slate-600 transition-all duration-300 dark:text-slate-300 ${
+                  open
+                    ? 'translate-y-0 opacity-100'
+                    : '-translate-y-2 opacity-0'
+                }`}
               >
                 {t(`nav.${key}`)}
               </a>
             ))}
-            <div className="flex items-center gap-2 pt-2">
+            <div
+              className={`flex items-center gap-2 pt-2 transition-all duration-300 ${
+                open
+                  ? 'translate-y-0 opacity-100'
+                  : '-translate-y-2 opacity-0'
+              }`}
+              style={{ transitionDelay: open ? `${60 + links.length * 40}ms` : '0ms' }}
+            >
               {langButton('en')}
               {langButton('es')}
             </div>
             <a
               href="#contacto"
               onClick={() => setOpen(false)}
-              className="rounded-lg bg-brand-600 px-4 py-2 text-center text-sm font-medium text-white"
+              style={{ transitionDelay: open ? `${100 + links.length * 40}ms` : '0ms' }}
+              className={`rounded-lg bg-brand-600 px-4 py-2 text-center text-sm font-medium text-white transition-all duration-300 ${
+                open
+                  ? 'translate-y-0 opacity-100'
+                  : '-translate-y-2 opacity-0'
+              }`}
             >
               {t('nav.cta')}
             </a>
           </div>
         </div>
-      )}
+      </div>
     </header>
   )
 }

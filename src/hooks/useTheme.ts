@@ -42,11 +42,14 @@ export function useTheme() {
       }
 
       const root = document.documentElement
-      const x = origin?.x ?? window.innerWidth / 2
-      const y = origin?.y ?? window.innerHeight / 2
+      const mobile =
+        window.matchMedia('(pointer: coarse)').matches ||
+        window.innerWidth < 768
+      const x = (origin?.x ?? window.innerWidth / 2) + (mobile ? window.scrollX : 0)
+      const y = (origin?.y ?? window.innerHeight / 2) + (mobile ? window.scrollY : 0)
       const maxR = Math.hypot(
-        Math.max(x, window.innerWidth - x),
-        Math.max(y, window.innerHeight - y),
+        Math.max(x - window.scrollX, window.scrollX + window.innerWidth - x),
+        Math.max(y - window.scrollY, window.scrollY + window.innerHeight - y),
       )
       const recede = next === 'dark'
       if (recede) root.classList.add('vt-recede')

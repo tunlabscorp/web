@@ -217,7 +217,7 @@ export function Showcase() {
               style={{ opacity: phoneEase * 0.85 }}
             />
             <Tilt max={5} className="relative">
-              <div className="w-[min(56vw,200px)] rounded-[2.6rem] border border-slate-300/70 bg-gradient-to-b from-slate-200 to-slate-300 p-2 shadow-2xl shadow-brand-950/30 lg:w-[min(74vw,280px)] dark:border-white/10 dark:from-slate-800 dark:to-slate-900 dark:shadow-black/50">
+              <div className="w-[min(78vw,300px)] rounded-[2.6rem] border border-slate-300/70 bg-gradient-to-b from-slate-200 to-slate-300 p-2 shadow-2xl shadow-brand-950/30 lg:w-[min(74vw,280px)] dark:border-white/10 dark:from-slate-800 dark:to-slate-900 dark:shadow-black/50">
                 <div className="relative aspect-[9/19] w-full overflow-hidden rounded-[2.1rem] bg-slate-100 dark:bg-black">
                   <span
                     aria-hidden="true"
@@ -238,11 +238,11 @@ export function Showcase() {
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900 md:text-3xl lg:text-4xl dark:text-white">
               {t('showcase.heading')}
             </h2>
-            <p className="mt-3 text-base text-slate-500 lg:mt-4 lg:text-lg dark:text-slate-400">
+            <p className="mt-2 text-sm text-slate-500 lg:mt-4 lg:text-lg dark:text-slate-400">
               {t('showcase.subheading')}
             </p>
 
-            <div className="mt-6 flex justify-center gap-5 lg:mt-8 lg:block lg:space-y-5">
+            <div className="mt-6 hidden justify-center gap-5 lg:mt-8 lg:block lg:space-y-5">
               {features.map(({ key, icon: Icon }) => (
                 <div
                   key={key}
