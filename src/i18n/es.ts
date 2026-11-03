@@ -81,8 +81,8 @@ export const es = {
   showcase: {
     heading: 'Hablemos de tu proyecto',
     subheading:
-      'Abre el chat dentro del teléfono y cuéntanos tu idea — te respondemos en un día hábil.',
-    hint: 'Escríbenos desde el teléfono — es un chat real',
+      'Completa el formulario dentro del teléfono y cuéntanos tu idea — te respondemos lo más pronto posible.',
+    hint: 'Escríbenos desde el teléfono — es un formulario real',
     features: {
       fast: {
         title: 'Entrega rápido, itera más rápido',
@@ -101,18 +101,24 @@ export const es = {
       overview: 'Resumen',
       analytics: 'Métricas',
       team: 'Equipo',
-      chat: 'Chat',
+      contact: 'Contacto',
     },
-    chat: {
-      greeting: '¡Hola! Soy el asistente de Tunlabs. ¿Cómo te llamas?',
-      askEmail: 'Mucho gusto, {{name}}. ¿Cuál es tu correo?',
-      invalidEmail: 'Ese correo no parece válido — intenta de nuevo.',
-      askProject: 'Perfecto. Cuéntame sobre tu proyecto o idea.',
-      success: '¡Listo! Tu mensaje ya llegó. Te responderemos dentro de un día hábil.',
-      error: 'Algo falló al enviar. Escríbenos directo a',
-      placeholder: 'Escribe...',
-      send: 'Enviar',
-      again: 'Enviar otro mensaje',
+    form: {
+      title: 'Cuéntanos tu proyecto',
+      name: 'Nombre',
+      namePlaceholder: 'Tu nombre',
+      email: 'Correo',
+      emailPlaceholder: 'tu@correo.com',
+      message: 'Mensaje',
+      messagePlaceholder: 'Tu proyecto o idea...',
+      required: 'Requerido',
+      invalidEmail: 'Correo inválido',
+      send: 'Enviar mensaje',
+      sending: 'Enviando...',
+      sentTitle: '¡Mensaje enviado!',
+      sentBody: 'Te responderemos lo más pronto posible.',
+      error: 'No se pudo enviar. Escríbenos a',
+      again: 'Enviar otro',
     },
     stats: {
       revenue: 'Ingresos',

@@ -81,8 +81,8 @@ export const en = {
   showcase: {
     heading: 'Let’s talk about your project',
     subheading:
-      'Open the chat inside the phone and tell us about your idea — we reply within one business day.',
-    hint: 'Message us from the phone — it’s a real chat',
+      'Fill out the form inside the phone and tell us about your idea — we reply as soon as possible.',
+    hint: 'Message us from the phone — it’s a real form',
     features: {
       fast: {
         title: 'Ship fast, iterate faster',
@@ -101,18 +101,24 @@ export const en = {
       overview: 'Overview',
       analytics: 'Analytics',
       team: 'Team',
-      chat: 'Chat',
+      contact: 'Contact',
     },
-    chat: {
-      greeting: "Hi! I'm the Tunlabs assistant. What's your name?",
-      askEmail: 'Nice to meet you, {{name}}. What’s your email?',
-      invalidEmail: 'That email doesn’t look right — try again.',
-      askProject: 'Great. Tell me about your project or idea.',
-      success: 'Done! Your message just landed. We’ll reply within one business day.',
-      error: 'Something went wrong sending it. Write us directly at',
-      placeholder: 'Type...',
-      send: 'Send',
-      again: 'Send another message',
+    form: {
+      title: 'Tell us about your project',
+      name: 'Name',
+      namePlaceholder: 'Your name',
+      email: 'Email',
+      emailPlaceholder: 'you@email.com',
+      message: 'Message',
+      messagePlaceholder: 'Your project or idea...',
+      required: 'Required',
+      invalidEmail: 'Invalid email',
+      send: 'Send message',
+      sending: 'Sending...',
+      sentTitle: 'Message sent!',
+      sentBody: 'We’ll reply as soon as possible.',
+      error: 'Couldn’t send. Write us at',
+      again: 'Send another',
     },
     stats: {
       revenue: 'Revenue',

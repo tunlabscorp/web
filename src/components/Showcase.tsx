@@ -4,10 +4,10 @@ import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { ShieldCheck, Target, Zap } from 'lucide-react'
 import { Tilt } from './Tilt'
-import { PhoneChat } from './PhoneChat'
+import { PhoneForm } from './PhoneForm'
 import { useScrollProgress } from '../hooks/useScrollProgress'
 
-const tabs = ['overview', 'analytics', 'team', 'chat'] as const
+const tabs = ['contact', 'overview', 'analytics', 'team'] as const
 type Tab = (typeof tabs)[number]
 
 const stats = [
@@ -25,15 +25,15 @@ const features = [
 
 function ScreenApp() {
   const { t } = useTranslation()
-  const [tab, setTab] = useState<Tab>('chat')
+  const [tab, setTab] = useState<Tab>('contact')
 
   return (
-    <div className="flex h-full flex-col bg-slate-950 text-left">
+    <div className="flex h-full flex-col bg-slate-50 text-left dark:bg-slate-950">
       {/* App top bar */}
       <div className="flex items-center justify-between px-4 pt-7 pb-2">
         <div className="flex items-center gap-1.5">
           <span className="size-1.5 rounded-full bg-brand-500" />
-          <span className="font-mono text-[10px] tracking-wide text-slate-300">
+          <span className="font-mono text-[10px] tracking-wide text-slate-700 dark:text-slate-300">
             tunlabs<span className="text-brand-400">.os</span>
           </span>
         </div>
@@ -42,21 +42,21 @@ function ScreenApp() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
             <span className="relative inline-flex size-1.5 rounded-full bg-emerald-400" />
           </span>
-          <span className="font-mono text-[8px] text-slate-500">LIVE</span>
+          <span className="font-mono text-[8px] text-slate-400 dark:text-slate-500">LIVE</span>
         </div>
       </div>
 
       {/* Tabs */}
-      <div className="flex gap-1 border-b border-white/10 px-3 py-2">
+      <div className="flex gap-1 overflow-x-auto border-b border-slate-200 px-3 py-2 [scrollbar-width:none] dark:border-white/10 [&::-webkit-scrollbar]:hidden">
         {tabs.map((key) => (
           <button
             key={key}
             type="button"
             onClick={() => setTab(key)}
-            className={`rounded-md px-2.5 py-1 text-[10px] font-medium transition-colors ${
+            className={`shrink-0 rounded-md px-2.5 py-1 text-[10px] font-medium transition-colors ${
               tab === key
                 ? 'bg-brand-600 text-white'
-                : 'text-slate-400 hover:bg-white/5 hover:text-slate-200'
+                : 'text-slate-500 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-400 dark:hover:bg-white/5 dark:hover:text-slate-200'
             }`}
           >
             {t(`showcase.tabs.${key}`)}
@@ -65,22 +65,22 @@ function ScreenApp() {
       </div>
 
       {/* Content */}
-      <div className={tab === 'chat' ? 'flex-1 overflow-hidden' : 'flex-1 overflow-hidden p-3'}>
+      <div className={tab === 'contact' ? 'flex-1 overflow-hidden' : 'flex-1 overflow-hidden p-3'}>
         {tab === 'overview' && (
           <div className="flex h-full flex-col gap-2">
             <div className="grid grid-cols-2 gap-2">
               {stats.map((s) => (
                 <div
                   key={s.key}
-                  className="rounded-lg border border-white/10 bg-white/[0.03] p-2.5"
+                  className="rounded-lg border border-slate-200 bg-white p-2.5 dark:border-white/10 dark:bg-white/[0.03]"
                 >
-                  <p className="text-[9px] text-slate-500">
+                  <p className="text-[9px] text-slate-400 dark:text-slate-500">
                     {t(`showcase.stats.${s.key}`)}
                   </p>
-                  <p className="mt-0.5 text-sm font-semibold text-white">
+                  <p className="mt-0.5 text-sm font-semibold text-slate-900 dark:text-white">
                     {s.value}
                   </p>
-                  <p className="text-[9px] font-medium text-emerald-400">
+                  <p className="text-[9px] font-medium text-emerald-600 dark:text-emerald-400">
                     {s.delta}
                   </p>
                 </div>
@@ -90,17 +90,17 @@ function ScreenApp() {
               {(['phoenix', 'atlas', 'nova'] as const).map((p, i) => (
                 <div
                   key={p}
-                  className="flex items-center justify-between rounded-lg border border-white/5 bg-white/[0.02] px-2.5 py-2"
+                  className="flex items-center justify-between rounded-lg border border-slate-100 bg-white px-2.5 py-2 dark:border-white/5 dark:bg-white/[0.02]"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="flex size-6 items-center justify-center rounded-md bg-brand-500/15 font-mono text-[9px] text-brand-300">
+                    <span className="flex size-6 items-center justify-center rounded-md bg-brand-500/10 font-mono text-[9px] text-brand-600 dark:bg-brand-500/15 dark:text-brand-300">
                       {String(i + 1).padStart(2, '0')}
                     </span>
-                    <span className="text-[11px] text-slate-200">
+                    <span className="text-[11px] text-slate-800 dark:text-slate-200">
                       {t(`showcase.projects.${p}`)}
                     </span>
                   </div>
-                  <span className="rounded-full bg-emerald-400/10 px-1.5 py-0.5 text-[8px] font-medium text-emerald-400">
+                  <span className="rounded-full bg-emerald-500/10 px-1.5 py-0.5 text-[8px] font-medium text-emerald-600 dark:bg-emerald-400/10 dark:text-emerald-400">
                     {t('showcase.shipped')}
                   </span>
                 </div>
@@ -111,7 +111,7 @@ function ScreenApp() {
 
         {tab === 'analytics' && (
           <div className="flex h-full flex-col justify-end gap-2">
-            <p className="text-[9px] text-slate-500">
+            <p className="text-[9px] text-slate-400 dark:text-slate-500">
               {t('showcase.weeklyDeploys')}
             </p>
             <div className="flex h-[65%] items-end gap-1.5">
@@ -126,23 +126,23 @@ function ScreenApp() {
           </div>
         )}
 
-        {tab === 'chat' && <PhoneChat />}
+        {tab === 'contact' && <PhoneForm />}
 
         {tab === 'team' && (
           <div className="flex h-full flex-col gap-1.5">
             {members.map((m, i) => (
               <div
                 key={m}
-                className="flex items-center gap-2.5 rounded-lg border border-white/10 bg-white/[0.03] p-2.5"
+                className="flex items-center gap-2.5 rounded-lg border border-slate-200 bg-white p-2.5 dark:border-white/10 dark:bg-white/[0.03]"
               >
                 <span className="flex size-7 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-brand-700 text-[9px] font-semibold text-white">
                   {m}
                 </span>
                 <div>
-                  <p className="text-[11px] font-medium text-white">
+                  <p className="text-[11px] font-medium text-slate-900 dark:text-white">
                     {t(`showcase.members.${i}.name`)}
                   </p>
-                  <p className="text-[9px] text-slate-500">
+                  <p className="text-[9px] text-slate-400 dark:text-slate-500">
                     {t(`showcase.members.${i}.role`)}
                   </p>
                 </div>
@@ -190,8 +190,14 @@ export function Showcase() {
     <section
       ref={ref}
       id="showcase"
-      className={`relative border-t border-slate-200 dark:border-white/5 ${reduced ? 'py-24' : 'h-[300vh]'}`}
+      className={`relative scroll-mt-20 border-t border-slate-200 dark:border-white/5 ${reduced ? 'py-24' : 'h-[300vh]'}`}
     >
+      <span
+        id="contacto"
+        aria-hidden="true"
+        className="pointer-events-none absolute"
+        style={{ top: reduced ? '45%' : '110vh' }}
+      />
       <div
         className={
           reduced
@@ -212,7 +218,7 @@ export function Showcase() {
             />
             <Tilt max={5} className="relative">
               <div className="w-[min(56vw,200px)] rounded-[2.6rem] border border-slate-300/70 bg-gradient-to-b from-slate-200 to-slate-300 p-2 shadow-2xl shadow-brand-950/30 lg:w-[min(74vw,280px)] dark:border-white/10 dark:from-slate-800 dark:to-slate-900 dark:shadow-black/50">
-                <div className="relative aspect-[9/19] w-full overflow-hidden rounded-[2.1rem] bg-black">
+                <div className="relative aspect-[9/19] w-full overflow-hidden rounded-[2.1rem] bg-slate-100 dark:bg-black">
                   <span
                     aria-hidden="true"
                     className="absolute top-2 left-1/2 z-10 h-4 w-16 -translate-x-1/2 rounded-full bg-slate-900"
@@ -220,7 +226,7 @@ export function Showcase() {
                   <ScreenApp />
                   <span
                     aria-hidden="true"
-                    className="absolute bottom-1.5 left-1/2 z-10 h-1 w-24 -translate-x-1/2 rounded-full bg-white/30"
+                    className="absolute bottom-1.5 left-1/2 z-10 h-1 w-24 -translate-x-1/2 rounded-full bg-slate-400/50 dark:bg-white/30"
                   />
                 </div>
               </div>

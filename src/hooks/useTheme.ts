@@ -1,8 +1,18 @@
 // Copyright (c) Tunlabs Corp. All rights reserved.
 
 import { useCallback, useEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
 
 export type Theme = 'light' | 'dark'
+
+type Origin = { x: number; y: number }
+
+type ViewTransitionDocument = Document & {
+  startViewTransition?: (callback: () => void) => {
+    ready: Promise<void>
+    finished: Promise<void>
+  }
+}
 
 function getInitialTheme(): Theme {
   const stored = localStorage.getItem('theme')
@@ -18,9 +28,62 @@ export function useTheme() {
     localStorage.setItem('theme', theme)
   }, [theme])
 
-  const toggle = useCallback(() => {
-    setTheme((t) => (t === 'dark' ? 'light' : 'dark'))
-  }, [])
+  const toggle = useCallback(
+    (origin?: Origin) => {
+      const next = theme === 'dark' ? 'light' : 'dark'
+      const doc = document as ViewTransitionDocument
+      const reduced = window.matchMedia(
+        '(prefers-reduced-motion: reduce)',
+      ).matches
+
+      if (!doc.startViewTransition || reduced) {
+        setTheme(next)
+        return
+      }
+
+      const root = document.documentElement
+      const x = origin?.x ?? window.innerWidth / 2
+      const y = origin?.y ?? window.innerHeight / 2
+      const maxR = Math.hypot(
+        Math.max(x, window.innerWidth - x),
+        Math.max(y, window.innerHeight - y),
+      )
+      const recede = next === 'dark'
+      if (recede) root.classList.add('vt-recede')
+
+      const vt = doc.startViewTransition(() => {
+        flushSync(() => setTheme(next))
+        root.classList.toggle('dark', next === 'dark')
+      })
+
+      let anim: Animation | undefined
+      void vt.ready
+        .then(() => {
+          const frames = [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxR}px at ${x}px ${y}px)`,
+          ]
+          anim = root.animate(
+            { clipPath: recede ? [frames[1], frames[0]] : frames },
+            {
+              duration: 750,
+              easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
+              pseudoElement: recede
+                ? '::view-transition-old(root)'
+                : '::view-transition-new(root)',
+              fill: 'forwards',
+            },
+          )
+        })
+        .catch(() => {})
+
+      void vt.finished.finally(() => {
+        anim?.cancel()
+        root.classList.remove('vt-recede')
+      })
+    },
+    [theme],
+  )
 
   return { theme, toggle }
 }

@@ -57,6 +57,16 @@ html {
   scroll-behavior: smooth;
 }
 
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+html.vt-recede::view-transition-old(root) {
+  z-index: 10;
+}
+
 .reveal {
   opacity: 0;
   transform: perspective(900px) translateY(48px) scale(0.94) rotateX(6deg);

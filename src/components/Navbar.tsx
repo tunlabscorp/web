@@ -11,7 +11,7 @@ const links = [
   { key: 'services', href: '#services' },
   { key: 'process', href: '#process' },
   { key: 'about', href: '#about' },
-  { key: 'contact', href: '#showcase' },
+  { key: 'contact', href: '#contacto' },
 ] as const
 
 export function Navbar() {
@@ -68,7 +68,7 @@ export function Navbar() {
             {langButton('es')}
           </div>
           <a
-            href="#showcase"
+            href="#contacto"
             className="rounded-lg bg-brand-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-500"
           >
             {t('nav.cta')}
@@ -106,7 +106,7 @@ export function Navbar() {
               {langButton('es')}
             </div>
             <a
-              href="#showcase"
+              href="#contacto"
               onClick={() => setOpen(false)}
               className="rounded-lg bg-brand-600 px-4 py-2 text-center text-sm font-medium text-white"
             >

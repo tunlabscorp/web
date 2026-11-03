@@ -25,7 +25,7 @@ export function Hero() {
           className="absolute inset-0 hidden h-full w-full object-cover object-right dark:block"
         />
       </div>
-      <Particles className="opacity-80" />
+      <Particles className="opacity-80" density={4.2} />
       <div
         aria-hidden="true"
         className="absolute inset-0 bg-gradient-to-r from-white via-white/70 to-transparent dark:from-slate-950 dark:via-slate-950/60"
@@ -60,7 +60,7 @@ export function Hero() {
             style={{ animationDelay: '300ms' }}
           >
             <a
-              href="#showcase"
+              href="#contacto"
               className="inline-flex items-center justify-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-500"
             >
               {t('hero.ctaPrimary')}

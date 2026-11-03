@@ -14,12 +14,14 @@ type ParticlesProps = {
   className?: string
   linkDistance?: number
   interactive?: boolean
+  density?: number
 }
 
 export function Particles({
   className = '',
   linkDistance = 120,
   interactive = true,
+  density = 1,
 }: ParticlesProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -46,8 +48,8 @@ export function Particles({
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
 
       const count = Math.min(
-        110,
-        Math.max(35, Math.floor((width * height) / 12000)),
+        Math.round(110 * density),
+        Math.max(35, Math.floor((width * height) / (12000 / density))),
       )
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * width,
@@ -105,11 +107,22 @@ export function Particles({
           const b = particles[j]
           const dist = Math.hypot(a.x - b.x, a.y - b.y)
           if (dist < linkDistance) {
+            const boost = mouse
+              ? Math.max(
+                  0,
+                  1 -
+                    Math.min(
+                      Math.hypot(a.x - mouse.x, a.y - mouse.y),
+                      Math.hypot(b.x - mouse.x, b.y - mouse.y),
+                    ) /
+                      200,
+                )
+              : 0
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(b.x, b.y)
-            ctx.strokeStyle = `${line} ${(1 - dist / linkDistance) * 0.28})`
-            ctx.lineWidth = 1
+            ctx.strokeStyle = `${line} ${(1 - dist / linkDistance) * (0.28 + boost * 0.35)})`
+            ctx.lineWidth = 1 + boost * 0.3
             ctx.stroke()
           }
         }
@@ -120,8 +133,8 @@ export function Particles({
             ctx.beginPath()
             ctx.moveTo(a.x, a.y)
             ctx.lineTo(mouse.x, mouse.y)
-            ctx.strokeStyle = `${line} ${(1 - dist / reach) * 0.5})`
-            ctx.lineWidth = 1
+            ctx.strokeStyle = `${line} ${(1 - dist / reach) * 0.7})`
+            ctx.lineWidth = 1.2
             ctx.stroke()
           }
         }
@@ -179,7 +192,7 @@ export function Particles({
       window.removeEventListener('pointermove', onPointerMove)
       document.removeEventListener('visibilitychange', () => {})
     }
-  }, [interactive, linkDistance])
+  }, [interactive, linkDistance, density])
 
   return (
     <canvas
